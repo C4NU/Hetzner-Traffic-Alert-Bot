@@ -25,6 +25,7 @@ with open("my_keys.json") as f:
 bot = telegram.Bot(token=keys_data["telegram"]["token"])
 chatID = keys_data["telegram"]["chatID"]
 
+bot.sendMessage(chat_id=chatID, text="봇 작동 시작")
 # Create a client - remove hashtag
 # client = Client(token=keys_data["hetzner"]["token"])
 
