@@ -1,0 +1,9 @@
+{
+	"telegram": {
+		"token": "",
+		"chatID": ""
+	},
+	"hetzner": {
+		"token": ""
+	}
+}
