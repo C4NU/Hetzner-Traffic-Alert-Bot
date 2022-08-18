@@ -84,6 +84,7 @@ def SendAlerts():
 	bot.sendMessage(chat_id=chatID, text=text)
 
 schedule.every().day.at("09:00").do(SendAlerts)
+schedule.every().day.at("21:00").do(SendAlerts)
 
 #schedule.every(5).seconds.do(SendAlerts)
 
