@@ -38,8 +38,8 @@ Run main.py from Project main folder, which main.py file located.
 }
 ```
 
-* "telegram" Section
+* **"telegram"** Section
   * Get bot_token from @Bot_Father and Get chatID from telegram.
-* "hetzner" Section
+* **"hetzner"** Section
   * Get API Token from Hetzner Cloud.
 
