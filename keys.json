@@ -1,9 +1,9 @@
 {
 	"telegram": {
-		"token": "",
-		"chatID": ""
+		"token": "<YOUR BOT TOKEN>",
+		"chatID": "<YOUR CHAT ID>"
 	},
 	"hetzner": {
-		"token": ""
+		"token": "<YOUR HETZNER CLOUD API TOKEN"
 	}
 }

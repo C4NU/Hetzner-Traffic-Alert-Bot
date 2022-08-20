@@ -25,6 +25,7 @@ class HetznerTrafficAlertBot:
 		self.bot = telegram.Bot(token=keys_data["telegram"]["token"])
 		self.chatID = keys_data["telegram"]["chatID"]
 		#Send Telegram Message "Starting Bot"
+		print("Starting Bot")
 		self.bot.sendMessage(chat_id=self.chatID, text="Starting Bot...")
 		#Initialize client object
 		self.client = Client(token=keys_data["hetzner"]["token"])
@@ -35,19 +36,19 @@ class HetznerTrafficAlertBot:
 		self.server = self.boundServer[0] # Get first server from list
 
 	#Byte To TerraByte Calculator Method
-	def ByteToTB(byteTraffic):
+	def ByteToTB(self, byteTraffic):
 		#Get Byte Size of Traffic
 		result = byteTraffic
-		#Calculate Byte To TerraByte
+		#Calculate Byte To TerraByte. / You can change range to calculate GB / MB or else.
 		for i in range(0, 4):
 			result = result / 1024
-		#Make Text for send Message
+		#Make Text for send Message. Default is rounding at 3 decimal places.
 		string = "Usage of Traffic: "+str(round(result,3))+"TB"
 		#Return Text
 		return string
 
 	#Total Usage Percentage Calculator Method
-	def TotalUsage(freeTraffic, outgoingTraffic):
+	def TotalUsage(self, freeTraffic, outgoingTraffic):
 		#Calculate Total Usage Percentage of Traffics
 		result = outgoingTraffic / freeTraffic * 100
 		#Make Text for send Message
@@ -74,9 +75,10 @@ def main():
 	#Initialize HetznerTrafficAlertBot class
 	hetznerTraffic = HetznerTrafficAlertBot()
 
-	#Set Schedule, you can adjust. Google python schedule
-	schedule.every().day.at("09:00").do(hetznerTraffic.SendAlerts)
-	schedule.every().day.at("21:00").do(hetznerTraffic.SendAlerts)
+	#Set Schedule. You can adjust.
+	#Schedule LINK: schedule.readthedocs.io/en/stable/examples.html
+	schedule.every().day.at("09:00").do(hetznerTraffic.SendAlerts) # AM 9:00 Send lert everyday.
+	schedule.every().day.at("21:00").do(hetznerTraffic.SendAlerts) # PM 9:99 Send alert everyday.
 	
 	#Runnig Bot
 	while True:
