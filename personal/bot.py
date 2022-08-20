@@ -1,23 +1,21 @@
-from sched import scheduler
+# Hetzner Cloud API module
 from hcloud import Client
-
 from hcloud.images.domain import Image
 from hcloud.servers.domain import Server
 from hcloud.server_types.domain import ServerType
 from hcloud.volumes.domain import Volume
-
-import urllib.request
+# Schedule module
 import schedule
-import json # json package
+# JSON module
+import json
+# time module
 import time
+# math module 
 import math
-
-import telegram # python-telegram-module package
+# Python Telegram module
+import telegram
 
 # Open Json file - use this section when clone project.
-
-#with open("keys.json") as f:
-#	keys_data = json.load(f)
 
 with open("my_keys.json") as f:
 	keys_data = json.load(f)
