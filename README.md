@@ -17,7 +17,7 @@ Install requirements.txt file that includes **python-telegram-module**, **hcloud
 ### Run main.py
 
 ```python
-$HetznerTrafficAlertBot python3 main.py
+<YOUR_SERVER> HetznerTrafficAlertBot % python3 main.py
 ```
 
 Run main.py from Project main folder, which main.py file located.
@@ -29,11 +29,11 @@ Run main.py from Project main folder, which main.py file located.
 ```json
 {
 	"telegram": {
-		"token": "",
-		"chatID": ""
+		"token": "<YOUR BOT TOKEN>",
+		"chatID": "<YOUR CHAT ID>"
 	},
 	"hetzner": {
-		"token": ""
+		"token": "<YOUR HETZNER CLOUD API TOKEN"
 	}
 }
 ```
@@ -42,4 +42,10 @@ Run main.py from Project main folder, which main.py file located.
   * Get bot_token from @Bot_Father and Get chatID from telegram.
 * **"hetzner"** Section
   * Get API Token from Hetzner Cloud.
+
+## ADDITIONAL DOCUMENTS TO READ
+
+### Schedule
+
+[]: https://schedule.readthedocs.io/en/stable/examples.html	"Python Schedule HELP document."
 
