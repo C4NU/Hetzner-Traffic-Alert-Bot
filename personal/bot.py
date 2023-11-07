@@ -28,9 +28,10 @@ bot.sendMessage(chat_id=chatID, text="Starting Bot...")
 # Create a client - remove hashtag
 # client = Client(token=keys_data["hetzner"]["token"])
 
-client_1 = Client(token=keys_data["hetzner"]["canu1832_token"])
-client_2 = Client(token=keys_data["hetzner"]["wakeup_token"])
-client_3 = Client(token=keys_data["hetzner"]["phium_token"])
+client_1 = Client(token=keys_data["hetzner"]["canu1832.dymension"])
+client_2 = Client(token=keys_data["hetzner"]["ic4x-1.dymension"])
+client_3 = Client(token=keys_data["hetzner"]["ic4x-2.dymension"])
+client_4 = Client(token=keys_data["hetzner"]["canu1832.avail"])
 
 def GetServer(client):
 	boundServer = client.servers.get_all() # Servers on List
@@ -56,6 +57,7 @@ def TotalUsage(freeTraffic, outgoingTraffic):
 server_1 = GetServer(client_1) # get first server
 server_2 = GetServer(client_2) 
 server_3 = GetServer(client_3) 
+server_4 = GetServer(client_4) 
 
 def SendAlerts():
 	name_1 = server_1.name
@@ -82,10 +84,18 @@ def SendAlerts():
 	print(text)
 	bot.sendMessage(chat_id=chatID, text=text)
 
+    name_4 = server_4.name
+    traffic_4 = ByteToTB(server_4.outgoing_traffic)
+    usagePercent_4 = TotalUsage(server_4.included_traffic, server_4.outgoing_traffic)
+
+    text = name_4+"\n"+traffic_4+"\n"+usagePercent_4
+    print(text)
+    bot.sendMessage(chat_id=chatID, text=text)
+
 schedule.every().day.at("09:00").do(SendAlerts)
 schedule.every().day.at("21:00").do(SendAlerts)
 
-#schedule.every(5).seconds.do(SendAlerts)
+schedule.every(5).seconds.do(SendAlerts)
 
 while True:
 	schedule.run_pending()
