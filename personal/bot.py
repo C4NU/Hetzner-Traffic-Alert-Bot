@@ -85,12 +85,12 @@ def SendAlerts():
 	bot.sendMessage(chat_id=chatID, text=text)
 	
 	name_4 = server_4.name
-    	traffic_4 = ByteToTB(server_4.outgoing_traffic)
-    	usagePercent_4 = TotalUsage(server_4.included_traffic, server_4.outgoing_traffic)
+	traffic_4 = ByteToTB(server_4.outgoing_traffic)
+	usagePercent_4 = TotalUsage(server_4.included_traffic, server_4.outgoing_traffic)
 
-    	text = name_4+"\n"+traffic_4+"\n"+usagePercent_4
-    	print(text)
-    	bot.sendMessage(chat_id=chatID, text=text)
+	text = name_4+"\n"+traffic_4+"\n"+usagePercent_4
+	print(text)
+	bot.sendMessage(chat_id=chatID, text=text)
 
 schedule.every().day.at("09:00").do(SendAlerts)
 schedule.every().day.at("21:00").do(SendAlerts)
